@@ -1,13 +1,31 @@
-const http = require('http');
-const axios = require('axios');
+const http = require('http'), 
+axios = require('axios'),
+logger = require('morgan'),
+cors = require('cors'),
+express = require('express'),
+bodyParser = require('body-parser');
 
-http
-  .createServer(function(req, res) {
-    res.write(characters.join("\n")); //display the list of users on the page
+var app =express();
+var port = 8000;
 
-    res.end(); //end the response
-  })
-  .listen(8080); //the server object listens on port 8080
+app.use(bodyParser.json())
+
+
+app.get('/hello/:foo/:bar', (req, res) => {
+    res.json({message: 'Hello BsCBesssstsss !', data :[
+        req.params.foo,
+        req.params.bar
+    ]});
+});
+
+
+// http
+//   .createServer(function(req, res) {
+//     res.write(characters.join("\n")); //display the list of users on the page
+
+//     res.end(); //end the response
+//   })
+//   .listen(8080); //the server object listens on port 8080
 
 
 let characters = [];
@@ -23,3 +41,10 @@ let characters = [];
     console.log(error)
   }
 })();
+
+app.listen(port, function(err){
+
+    console.log('Listening on port:' + port);
+
+
+});
