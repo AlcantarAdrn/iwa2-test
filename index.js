@@ -9,6 +9,7 @@ var app =express();
 var port = 8000;
 
 app.use(bodyParser.json())
+app.use(logger('tiny'));
 
 
 app.get('/hello/:foo/:bar', (req, res) => {
@@ -16,6 +17,10 @@ app.get('/hello/:foo/:bar', (req, res) => {
         req.params.foo,
         req.params.bar
     ]});
+});
+
+app.post('/hello/', (req, res) => {
+    res.json({result: 'Post was sent', data: req.body});
 });
 
 
