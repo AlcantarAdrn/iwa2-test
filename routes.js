@@ -1,10 +1,10 @@
 const express = require('express'),
 router = express.Router();
 
-//itemCtrl = require('./item-controller');
+itemCtrl = require('./item-controller');
 
 let userCtrl = require('./user-controller');
-// router.get('/hello', itemCtrl.getWorld);
+ router.get('/hello', itemCtrl.getWorld);
 // router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
 // router.post('/hello', itemCtrl.postWorld);
 
