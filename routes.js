@@ -1,13 +1,9 @@
 const express = require('express'),
-router = express.Router(),
-multer = require('multer');
+router = express.Router();
 
 //itemCtrl = require('./item-controller');
 
-var userCtrl = require('./user-controller'),
-imageCtrl = require('./image-controller');
-
-
+let userCtrl = require('./user-controller');
 // router.get('/hello', itemCtrl.getWorld);
 // router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
 // router.post('/hello', itemCtrl.postWorld);
@@ -19,7 +15,11 @@ router.put('/users:/id',userCtrl.updateUser);
 router.delete('/users:/id',userCtrl.deleteUser);
 
 module.exports.UPLOAD_PATH = "uploads";
+
+let multer = require("multer");
 let upload = multer({ dest: module.exports.UPLOAD_PATH});
+let imageCtrl = require('./image-controller');
+
 
 router.post('/images', upload.single('image'), imageCtrl.uploadImage);
 router.get('/images', imageCtrl.getImages);
