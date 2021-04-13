@@ -4,19 +4,17 @@ path = require('path'),
 fs = require('fs'),
 del = require('del');
 
-exports.uploadImage = function(req, res)
-{
+exports.uploadImage = function(req, res) {
     let newImage = new Image();
     newImage.filename = req.file.filename;
     newImage.originalName = req.file.originalname;
     newImage.desc = req.body.desc;
     newImage.save(err => {
-        if (err){
+        if (err) {
             return res.sendStatus(400);
         }
         res.status(201).send({ newImage })
     });
-
 };
 
 exports.getImages = function(req, res) {
@@ -34,6 +32,7 @@ exports.getImages = function(req, res) {
 
         res.json(images);
     });
+};
 
 exports.getImage = function(req, res) {
     let imgId = req.params.id;
@@ -48,7 +47,6 @@ exports.getImage = function(req, res) {
     });
 };
 
-
 exports.deleteImage = function(req, res) {
     let imgId = req.params.id;
 
@@ -61,6 +59,4 @@ exports.deleteImage = function(req, res) {
             res.sendStatus(200);
         });
     });
-};
-
 };
