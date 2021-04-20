@@ -6,8 +6,10 @@ bodyParser = require('body-parser'),
 mongoose = require('mongoose'),
 dotenv = require("dotenv");
 
+//All the external dependencies necessary to run our web application.
+
 let app = express();
-let port = 8000;
+let port = process.env.PORT || 8000; 
 dotenv.config();
 
 

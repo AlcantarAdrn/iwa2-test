@@ -4,9 +4,8 @@ router = express.Router();
 itemCtrl = require('./item-controller');
 
 let userCtrl = require('./user-controller');
- router.get('/hello', itemCtrl.getWorld);
-// router.get('/hello/:foo/:bar', itemCtrl.getWorldParams);
-// router.post('/hello', itemCtrl.postWorld);
+router.get('/hello', itemCtrl.getWorld);
+
 
 router.post('/users', userCtrl.createUser);
 router.get('/users', userCtrl.getUsers);

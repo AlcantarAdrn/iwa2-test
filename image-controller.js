@@ -3,6 +3,13 @@ Image = require('./models/image'),
 path = require('path'),
 fs = require('fs'),
 del = require('del');
+//All the dependencies necessary for this image middleware 
+
+//Following there is a serie of functions for the Images
+
+//We export the upload image function, in order for the image to be generated we require
+//The filename, the original name, and the description.
+//If an error occurs we respond with the 400 code, if everything is correct we return a 200
 
 exports.uploadImage = function(req, res) {
     let newImage = new Image();
@@ -17,6 +24,7 @@ exports.uploadImage = function(req, res) {
     });
 };
 
+//We export the following function that find all images and then print the
 exports.getImages = function(req, res) {
     Image.find({}, '-__v')
     .lean()
@@ -26,7 +34,7 @@ exports.getImages = function(req, res) {
         }
 
         for (let i = 0; i < images.length; i++) {
-            var img = images[i];
+            let img = images[i];
             img.url = req.protocol + '://' + req.get('host') + '/images/' + img._id;
         }
 
@@ -34,6 +42,8 @@ exports.getImages = function(req, res) {
     });
 };
 
+//We also export the following function, that finds a single image, we need to send 
+//the get request along with the image ID. 
 exports.getImage = function(req, res) {
     let imgId = req.params.id;
 
@@ -47,6 +57,8 @@ exports.getImage = function(req, res) {
     });
 };
 
+//Following function that deletes an only image.
+//We also need to send the get request along with the image ID.
 exports.deleteImage = function(req, res) {
     let imgId = req.params.id;
 
