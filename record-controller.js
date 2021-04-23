@@ -9,7 +9,7 @@ exports.createRecord = function(req,res) {
         }
         res.json(Record);
 
-    })
+    });
 };
 
 exports.getRecords = function(req, res){
@@ -18,10 +18,5 @@ exports.getRecords = function(req, res){
             res.status(400).json(err);
         }
         res.json(records);
-
-
-
-    })
-
-}
-
+    });
+};
