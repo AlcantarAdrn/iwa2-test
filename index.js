@@ -17,11 +17,12 @@ app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
 
+
+
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 })
 
-//const dbURI = "mongodb://localhost/test";
 const dbURI = process.env.DB_URL;
 
 
