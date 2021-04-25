@@ -3,11 +3,11 @@ let Record = require('./models/record');
 exports.createRecord = function(req,res) {
 
     let newRecord = new Record(req.body); 
-    newRecord.save(function(err, Record){
+    newRecord.save(function(err, record){
         if(err) {
             res.status(400).json(err);
         }
-        res.json(Record);
+        res.json(record);
 
     });
 };
