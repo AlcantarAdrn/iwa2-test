@@ -4,6 +4,7 @@ cors = require('cors'),
 express = require('express'),
 bodyParser = require('body-parser'),
 mongoose = require('mongoose'),
+exphbs = require('express-handlebars'),
 dotenv = require("dotenv");
 
 var app = express();
@@ -15,7 +16,16 @@ app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
 
+app.engine('hbs', exphbs({
+    defaultLayout: 'main',
+    extname: '.hbs'
+}));
 
+app.set('view engine', 'hbs');
+
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
