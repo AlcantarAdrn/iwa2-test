@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+//In order to interact with the MongoDB 
 
-let recordSchema = new mongoose.Schema({
-    artist: String,
-    title: String,
-    price: Number
+//We define the users schema, when an user is created we must follow this schema
+let recordSchema = new mongoose.Schema({ 
+    artist : String,
+    title : String,
+    price : String
+    });
 
-},{timestamps:true});
-
-
-module.exports = mongoose.model('Record',recordSchema);
+//And we export the user schema 
+module.exports = mongoose.model('Record', recordSchema);
