@@ -1,23 +1,61 @@
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Welcome to your Records Shop.</a>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Welcome to your Records</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-5"><i>Welcome to "Adrian's Records" </i></h1>
+                <p class="lead">Select your fav records from the menu:</p>
+            </div>
+            
+            <div class="col-lg-12 order-1 text-center">
+                <form enctype="/users" action="/users" method="get">
+                    <div class="form-group">
+                        <select class="form-control" name="sec_n">
+                            <option value="0">Users</option>
+                            <option value="1">Records</option>
+                            <option value="2">Images</option>
+                        </select>
+                        {{!-- <input class="form-control mt-3" type="text" name="item" placeholder="Item">
+                        <input class="form-control mt-3" type="text" name="price" placeholder="Price"> --}}
 
-<div class="posts">
-    <div class="row justify-content-center">
-        <div class="col-lg-7" style="margin-top: 50px;">
-            <div class="card">
-
-                <img src="https://picsum.photos/500/500"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Posted by Janith Kasun</h5>
-
-                    <ul class="list-group">
-                        <li class="list-group-item">This is supposed to be a comment</li>
-                        <li class="list-group-item">This is supposed to be a comment</li>
-                    </ul>
-                </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Submit</button>
+                    </div>
+                </form>
+                <button id="delete" class="btn btn-danger btn-block mt-3">Delete</button>
+                <p class="text-muted text-center">To delete an entree, click the required row first</p>
+                
+                {{!-- <form>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">&euro;</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Total" name="txtBillAmt">
+                        <div class="input-group-append">
+                        </div>
+                        <input class="btn btn-block btn-secondary mt-2" type="button" name="btnCalcBill"
+                            value="Calculate Bill" id="calcBill">
+                    </div>
+                </form> --}}
             </div>
         </div>
     </div>
-</div>
+    <footer class="footer">
+        <div class="container text-center"><span class="text-muted">&copy; 2021</span></div>
+    </footer>
+    
