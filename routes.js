@@ -7,10 +7,11 @@ let userCtrl = require('./user-controller');
 let recordCtrl = require('./record-controller')
 
  router.post('/records', recordCtrl.createRecord);
- router.get('/records', recordCtrl.getRecord);
- router.get('/records/:id',userCtrl.getRecord);
- router.put('/records/:id',userCtrl.updateRecord);
- router.delete('/records/:id',userCtrl.deleteRecord);
+ router.get('/records', recordCtrl.getRecords);
+ router.get('/records/:id',recordCtrl.getRecord);
+ router.put('/records/:id',recordCtrl.updateRecord);
+ router.delete('/records/:id',recordCtrl.deleteRecord);
+
 ////////////////////////////////
 
  router.post('/users', userCtrl.createUser);

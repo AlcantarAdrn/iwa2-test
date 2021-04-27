@@ -5,6 +5,11 @@ const mongoose = require('mongoose');
 let recordSchema = new mongoose.Schema({ 
     artist : String,
     title : String,
+    section : {
+        type: String,
+        enum: ['POP', 'ALTERNATIVE', 'FOLK-POP', 'INDIE']
+
+    },
     price : String
     });
 

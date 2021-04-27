@@ -1,8 +1,8 @@
 var Record = require('./models/record')
 
 exports.createRecord = function(req, res) { 
-    var newRecord = new User(req.body);
-    newRecord.save(function (err, user) { 
+    var newRecord = new Record(req.body);
+    newRecord.save(function (err, record) { 
         if (err) { 
             res.status (400).json(err);
         }
