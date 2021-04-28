@@ -10,7 +10,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home
                             <span class="sr-only">(current)</span>
-                        </a>
+                        </a>   
                     </li>
                 </ul>
             </div>
@@ -22,36 +22,14 @@
                 <h1 class="mt-5"><i>Welcome to "Adrian's Records" </i></h1>
                 <p class="lead">Select your fav records from the menu:</p>
             </div>
-            
-            <div class="col-lg-12 order-1 text-center">
-                <form enctype="/users" action="/users" method="get">
-                    <div class="form-group">
-                        <select class="form-control" name="sec_n">
-                            <option value="0">Users</option>
-                            <option value="1">Records</option>
-                            <option value="2">Images</option>
-                        </select>
-                        {{!-- <input class="form-control mt-3" type="text" name="item" placeholder="Item">
-                        <input class="form-control mt-3" type="text" name="price" placeholder="Price"> --}}
 
-                        <button type="submit" class="btn btn-primary btn-block mt-3">Submit</button>
-                    </div>
-                </form>
-                <button id="delete" class="btn btn-danger btn-block mt-3">Delete</button>
-                <p class="text-muted text-center">To delete an entree, click the required row first</p>
-                
-                {{!-- <form>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">&euro;</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Total" name="txtBillAmt">
-                        <div class="input-group-append">
-                        </div>
-                        <input class="btn btn-block btn-secondary mt-2" type="button" name="btnCalcBill"
-                            value="Calculate Bill" id="calcBill">
-                    </div>
-                </form> --}}
+
+   
+            <li><a href="/users">Sign up!!</a></li>
+            <li><a href="/records">Login</a></li>
+            <li><a href="/images">Logout</a></li>
+    
+            
             </div>
         </div>
     </div>
