@@ -16,18 +16,18 @@ app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
 
+
+
 app.set('view engine', 'ejs');
 
+
 app.get('/', (req, res) => {
-    res.render('index');
-   
-});
-
-
+    res.render('index', );
+    }); 
 
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
-})
+});
 
 const dbURI = process.env.DB_URL;
 

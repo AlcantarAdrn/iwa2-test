@@ -11,13 +11,17 @@ exports.createUser = function(req, res) {
 });
 };
 
+
+
 exports.getUsers = function(req, res) {
   User.find({}, function (err, users) {
     if (err) {
       res.status(400).json(err); 
     } 
+   
     res.json(users);
-  }); 
+    
+}); 
 };
 
 exports.getUser = function(req, res) {
@@ -25,7 +29,8 @@ exports.getUser = function(req, res) {
     if (err) {
       res.status(400).json(err); 
     } 
-    res.json(users);
+  res.json(users);
+  
   }); 
 };
 
