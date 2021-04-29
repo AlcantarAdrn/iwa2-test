@@ -3,8 +3,8 @@ router = express.Router();
 
 
 
-let userCtrl = require('./user-controller');
-let recordCtrl = require('./record-controller')
+let userCtrl = require('./controller/user-controller');
+let recordCtrl = require('./controller/record-controller')
 
  router.post('/records', recordCtrl.createRecord);
  router.get('/records', recordCtrl.getRecords);
@@ -24,7 +24,7 @@ module.exports.UPLOAD_PATH = "uploads";
 
 let multer = require("multer");
 let upload = multer({ dest: module.exports.UPLOAD_PATH});
-let imageCtrl = require('./image-controller');
+let imageCtrl = require('./controller/image-controller');
 
 
 router.post('/images', upload.single('image'), imageCtrl.uploadImage);

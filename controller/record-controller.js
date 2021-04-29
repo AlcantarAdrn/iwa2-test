@@ -1,4 +1,4 @@
-var Record = require('./models/record')
+var Record = require('../models/record')
 
 exports.createRecord = function(req, res) { 
     var newRecord = new Record(req.body);
