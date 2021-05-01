@@ -7,7 +7,7 @@ mongoose = require('mongoose'),
 ejs = require('ejs'),
 dotenv = require("dotenv");
 
-var app = express();
+const app = express();
 let port = process.env.PORT || 8000; 
 dotenv.config();
 
@@ -16,16 +16,16 @@ app.use(logger('tiny'));
 app.use(require('./routes'));
 
 
-
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('login', {
-        title: 'Login'} 
-    )
+    res.render('index', 
+    {name: "adrian",
+    title: "home"},  
+    )  
 });    
 
-  
+
 app.listen(port, function(err){
     console.log('Listening on port: ' + port);
 });

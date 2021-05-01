@@ -26,10 +26,21 @@ let multer = require("multer");
 let upload = multer({ dest: module.exports.UPLOAD_PATH});
 let imageCtrl = require('./controller/image-controller');
 
-
 router.post('/images', upload.single('image'), imageCtrl.uploadImage);
 router.get('/images', imageCtrl.getImages);
 router.get('/images/:id', imageCtrl.getImage);
 router.delete('images/:id',imageCtrl.deleteImage);
+
+router.get('/register', (req,res) =>{
+    res.render('register',
+    {title: "register"})
+}
+)
+router.get('/login', (req,res) =>{
+    res.render('login',
+    {title: "login"})
+}
+)
+
 
 module.exports = router;

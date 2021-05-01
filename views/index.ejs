@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrian Records</title>
+    <title><%=title%></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,22 +16,18 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <ul class="navbar-nav">
         <li class="nav-item active">
-      <a class="nav-link" href="/"; style="font-family: 'Times New Roman', Times, serif;">Home</a>
+      <a class="nav-link" href="/"; style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Home</a>
     </li>
     </ul>
     <div class="container-fluid pt-3 justify-content-center" >
-    <h2 style="color: teal; font-family: 'Times New Roman', Times, serif;">   Welcome to Records</h2>
+    <h2 style="color: teal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">   Welcome to Records </h2>
     </div>
   </nav>
+<br>
 
-<div class="container-fluid">
-<table id="add_to_me"></table>
-<button onclick="fetchData()" class="btn btn-primary btn-lg" role="button">Records</button>
-</div>
-
-
-
-
+<table class="table table-striped" id="add_to_me"></table>
+<button onclick="fetchData()" class="btn btn-primary btn-lg" role="button">Records by name</button>
+<button onclick="sortTable()" class="btn btn-primary btn-lg"> Sort by price</button>
 
     <script>
      async function fetchData(url){
@@ -43,23 +39,48 @@
   function show(data) {
     let tab = 
         `<tr>
-          <th>Artist: </th>
-          <th>Title: </th>
-          <th> Price: </th>
+          <th>ARTIST:     </th>
+          <th>TITLE:      </th>
+          <th> PRICE:     </th>
          </tr>`;
     
     // Loop to access all rows 
     for (let r of data) {
         tab += `<tr> 
-    <td>${r.artist} </td>
-    <td>${r.title}</td> 
-    <td>${r.price}</td>
+    <td>${r.artist}   </td>
+    <td>${r.title}    </td> 
+    <td>${r.price}   </td>
 
 </tr>`;
     }
-    // Setting innerHTML as tab variable
     document.getElementById("add_to_me").innerHTML = tab;
 }
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("add_to_me");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[2];
+      y = rows[i + 1].getElementsByTagName("TD")[2];
+      if (Number(x.innerHTML) > Number(y.innerHTML)) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+    
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+
     </script>    
 
 
