@@ -8,28 +8,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
 <center>
 
-<h1> Welcome to your Record Shop. </h1>
+    <div class= "container-fluid">
+    <h1> Welcome to your Record Shop. </h1>
+</div>
 
-    <div id="add_to_me">
-        
+    <div>
+        <table id="add_to_me"></table>
     </div>
+    
 
-    <a href ="#" class="btn btn-info btn-lg" role="button">Home </a>
-    <a href="/users" class="btn btn-primary btn-lg" role="button">Users </a>
+    <a href ="/" class="btn btn-info btn-lg" role="button">Home </a>
+    <button onclick="fetchData()" class="btn btn-primary btn-lg" role="button">Users </button>
     <a href="/records" class="btn btn-primary btn-lg" role="button">Records </a>
     <a href="/images" class="btn btn-info btn-lg" role="button">Images </a>
      
-<button onclick="addCode()"> Test</button>
+
+
 
     <script>
-        function addCode() {
-            document.getElementById("add_to_me").innerHTML += 
-              "<h3>This is the text which has been inserted by JS</h3>";
-        }
+     async function fetchData(url){
+    const response = await fetch('/records');
+    var data = await response.json();
+    console.log(data);
+    show(data);
+}   
+  function show(data) {
+    let tab = 
+        `<tr>
+          <th>Artist: </th>
+          <th>Title: </th>
+          <th> Price: </th>
+         </tr>`;
+    
+    // Loop to access all rows 
+    for (let r of data) {
+        tab += `<tr> 
+    <td>${r.artist} </td>
+    <td>${r.title}</td> 
+    <td>${r.price}</td>
+
+</tr>`;
+    }
+    // Setting innerHTML as tab variable
+    document.getElementById("add_to_me").innerHTML = tab;
+}
+ 
+
     </script>    
 
 
