@@ -21,6 +21,12 @@ app.use(require('./routes'));
 
 app.set('view engine', 'ejs');  
 
+app.get('/home', (req, res) => {
+    res.render('index', 
+    {owner: "adrian",
+    title: "index"},  
+    )
+})
 
 app.listen(port, function(err){
     console.log('Listening on port:' +port);

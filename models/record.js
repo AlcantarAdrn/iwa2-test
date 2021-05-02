@@ -1,19 +1,24 @@
 const mongoose = require('mongoose');
-//In order to interact with the MongoDB 
 
-//We define the users schema, when an user is created we must follow this schema
 let recordSchema = new mongoose.Schema({ 
     artist : {
         type: String,
         required: true
     },
-    album : String,
+    album : {
+        type: String,
+          required: true
+    },
     section : {
         type: String,
-        enum: ['POP', 'ALTERNATIVE', 'FOLK-POP', 'INDIE']
-
+        enum: ['POP', 'ALTERNATIVE', 'FOLK-POP', 'INDIE'],
+          required: true
     },
-    price : String
+    price : 
+    {
+        type: Number,
+        required: true
+    }
     });
 
 //And we export the user schema 
