@@ -30,20 +30,18 @@ router.get('/images', imageCtrl.getImages);
 router.get('/images/:id', imageCtrl.getImage);
 router.delete('images/:id',imageCtrl.deleteImage);
 
-router.get('/login', userCtrl.login);
-
-router.get('/', (req, res) => {
-    res.render('login', 
-    {owner: "adrian",
-    title: "home"},  
-    )
-})
+router.post('/login', userCtrl.login);
 
 router.get('/register', (req, res)=>{
     res.render('register', 
     {title: 'register'})
 })
 
+router.post('/register', recordCtrl.createRecord);
 
+router.get('/home', (req,res)=> {
+    res.render('index',
+    {title: 'home'})
+})
 
 module.exports = router;

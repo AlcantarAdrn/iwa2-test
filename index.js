@@ -8,8 +8,6 @@ ejs = require('ejs'),
 dotenv = require("dotenv");
 var Record = require('./models/record');
 
-const {check, validationResult} = require('express-validator');
-
 const app = express();
 let port = process.env.PORT || 8000; 
 dotenv.config();
@@ -18,15 +16,13 @@ app.use(bodyParser.json());
 app.use(logger('tiny'));
 app.use(require('./routes'));
 
-
 app.set('view engine', 'ejs');  
 
-app.get('/home', (req, res) => {
-    res.render('index', 
-    {owner: "adrian",
-    title: "index"},  
-    )
-})
+app.get('/', (req, res) => {
+res.render('login', 
+{owner: "adrian",
+title: "login"},  
+)})
 
 app.listen(port, function(err){
     console.log('Listening on port:' +port);

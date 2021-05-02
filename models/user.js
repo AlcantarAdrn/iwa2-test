@@ -10,7 +10,7 @@ let userSchema = new mongoose.Schema({
         type: String,
         enum: ['MALE', 'FEMALE']
     },
-    phone: Number 
+    phone: String 
 });
 
 //And we export the user schema 

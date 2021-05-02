@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=title%></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.>s"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/po>per.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="./home_script.js"></script>
     
 </head>
 <body>
@@ -16,21 +18,73 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <ul class="navbar-nav">
         <li class="nav-item active">
-      <a class="nav-link" href="/"; style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Home</a>
+      <a class="nav-link" href="/"; style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Back</a>
     </li>
     </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+      <a class="nav-link" href="/home"; style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Home</a>
+    </li>
+    </ul>
+    
     <div class="container-fluid pt-3 justify-content-center" >
     <h2 style="color: teal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">   Welcome to Records </h2>
     </div>
   </nav>
-<br>
+<div class="jumbotron jumbotron-fluid">
 
-<table class="table table-striped" id="add_to_me"></table>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+             <li data-target="#demo" data-slide-to="3"></li>
+        </ul>
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src=" https://images.thebrag.com/dbu/uploads/2018/08/Ariana-Grande-new-JD-edit-768x461.jpg "        
+            alt = "Arianna Grande" width="500" height="350"></div>
+
+    <div class="carousel-item">
+      <img src="https://i.guim.co.uk/img/media/40cb2a743210433fa3bbc5380160ee0d8d87ef78/0_92_2724_1634/master/2724.jpg?width=700&quality=45&auto=format&fit=max&dpr=2&s=b4d766051cc4a1fc85e6484b4856f583" 
+      alt="Jessie Ware" width="500" height="350"></div>
+
+    <div class="carousel-item">
+      <img src="https://www.telegraph.co.uk/content/dam/luxury/2020/09/03/REBECCA-NAEN-REBECCA-NAEN-200722_LIANNE_LA_HAVAS_157_1_trans_NvBQzQNjv4BqZgEkZX3M936N5BQK4Va8RWtT0gK_6EfZT336f62EI5U.jpg" 
+      alt="Lianne LaHavas " width="500" height="350">
+    </div>
+    
+  <div class="carousel-item">
+    <img src="https://www.prsformusic.com/-/media/images/mmagazine/images/2015/09/fkatwigscarousel.jpg"
+    alt="FWA Twigs" width="500" height="350">
+  </div> 
+  </div>
+  
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+</div>
+
+
+<table class="table table-striped" id="add_to_me">
+
+</table>
+
 <button onclick="fetchData()" class="btn btn-primary btn-lg" role="button">Show all records</button>
-<button onclick="sortTable()" class="btn btn-primary btn-lg"> Sort by price</button>
-<a href="/register"button> Add a new record   </button></a>
+<!-- <button onclick="sortTable()" class="btn btn-primary btn-lg"> Sort by price</button> -->
 
-    <script>
+
+
+</center>
+</body>
+
+<script>
      async function fetchData(url){
     const response = await fetch('/records');
     var data = await response.json();
@@ -53,39 +107,9 @@
     <td>${r.album}    </td> 
     <td>${r.section}    </td> 
     <td>${r.price}   </td>
-
 </tr>`;
     }
     document.getElementById("add_to_me").innerHTML = tab;
 }
-
-function sortTable() {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("add_to_me");
-  switching = true;
-  while (switching) {
-    switching = false;
-    rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[2];
-      y = rows[i + 1].getElementsByTagName("TD")[2];
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-    if (shouldSwitch) {
-    
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-    }
-  }
-}
 </script>
-
-    </script>    
-
-
-</body>
 </html>

@@ -45,7 +45,7 @@ exports.login = (req,res) => {
                     })
                 }
             if(result){
-                let token = jwt.sign({name : user.name}, 'verySecretValue', {expiresIn: '20min'})
+                let token = jwt.sign({name : user.name}, 'verySecretValue', {expiresIn: '1hr'})
                 res.json({
 
                     message: 'Login successful', 
