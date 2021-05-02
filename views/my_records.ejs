@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <center>
+    
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+     <ul class="navbar-nav">
+        <li class="nav-item active">
+      <a class="nav-link" href="/"; style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">back</a>
+    </li>
+    </ul>
+    <div class="container-fluid pt-3 justify-content-center" >
+    <h2 style="color: teal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">  Records 
+    <%=title%> page</h2>
+    </div>
+  </nav>
+<br>
+
+
+<form action="/register" method="POST">
+ 
+    <div class= "form group"> 
+        <label for="artist" class="form-label">Artist</label>
+        <input type="text" class="form-control" placeholder="Artist name" name="artist">
+    </div>
+     
+    <div class= "form group"> 
+        <label for="album" class="form-label">Album</label>
+        <input type="text" class="form-control" placeholder="Album title" name="album" id="album">
+    
+    </div>
+  
+    <div class= "form group"> 
+        <label for="section" class="form-label">Section</label>
+        <input type="text" class="form-control" placeholder="section" name="section" id="section">
+    </div>
+  
+    <div class= "form group"> 
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" placeholder="price" name="price" id="price">
+    </div>
+
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+</form>
+
+</center>
+</body>
+</html>

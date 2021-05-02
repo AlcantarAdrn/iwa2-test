@@ -3,8 +3,11 @@ const mongoose = require('mongoose');
 
 //We define the users schema, when an user is created we must follow this schema
 let recordSchema = new mongoose.Schema({ 
-    artist : String,
-    title : String,
+    artist : {
+        type: String,
+        required: true
+    },
+    album : String,
     section : {
         type: String,
         enum: ['POP', 'ALTERNATIVE', 'FOLK-POP', 'INDIE']

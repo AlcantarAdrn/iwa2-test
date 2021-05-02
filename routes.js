@@ -2,7 +2,6 @@ const express = require('express'),
 router = express.Router();
 
 
-
 let userCtrl = require('./controller/user-controller');
 let recordCtrl = require('./controller/record-controller')
 
@@ -31,16 +30,20 @@ router.get('/images', imageCtrl.getImages);
 router.get('/images/:id', imageCtrl.getImage);
 router.delete('images/:id',imageCtrl.deleteImage);
 
-router.get('/register', (req,res) =>{
-    res.render('register',
-    {title: "register"})
-}
-)
-router.get('/login', (req,res) =>{
-    res.render('login',
-    {title: "login"})
+router.get('/my_records', (req,res)=>{
+    res.render('my_records', 
+    {title: "my_records" })
 }
 )
 
+router.get('/', (req, res) => {
+    res.render('index', 
+    {owner: "adrian",
+    title: "home"},  
+    )
+
+
+})
+router.post('/register', recordCtrl.createRecord)
 
 module.exports = router;

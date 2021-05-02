@@ -28,6 +28,7 @@
 <table class="table table-striped" id="add_to_me"></table>
 <button onclick="fetchData()" class="btn btn-primary btn-lg" role="button">Records by name</button>
 <button onclick="sortTable()" class="btn btn-primary btn-lg"> Sort by price</button>
+<a href="/my_records"button> Add a new record   </button></a>
 
     <script>
      async function fetchData(url){
@@ -40,7 +41,8 @@
     let tab = 
         `<tr>
           <th>ARTIST:     </th>
-          <th>TITLE:      </th>
+          <th>ALBUM:      </th>
+          <th> SECTION:    </th>
           <th> PRICE:     </th>
          </tr>`;
     
@@ -48,7 +50,8 @@
     for (let r of data) {
         tab += `<tr> 
     <td>${r.artist}   </td>
-    <td>${r.title}    </td> 
+    <td>${r.album}    </td> 
+    <td>${r.section}    </td> 
     <td>${r.price}   </td>
 
 </tr>`;

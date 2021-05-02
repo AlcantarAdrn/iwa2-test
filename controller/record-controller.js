@@ -1,14 +1,21 @@
-var Record = require('../models/record')
+const Record = require('../models/record');
 
-exports.createRecord = function(req, res) { 
-    var newRecord = new Record(req.body);
-    newRecord.save(function (err, record) { 
+
+exports.createRecord = (req, res) => { 
+   const newRecord = new Record({
+        artist: req.body.artist,
+        album: req.body.album,
+        section: req.body.section,
+        price: req.body.price
+        })
+      newRecord.save(function (err, record) { 
         if (err) { 
             res.status (400).json(err);
         }
         res.json(record); 
-});
-};
+
+})
+    };
 
 exports.getRecords = function(req, res) {
   Record.find({}, function (err, records) {

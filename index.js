@@ -6,6 +6,9 @@ bodyParser = require('body-parser'),
 mongoose = require('mongoose'),
 ejs = require('ejs'),
 dotenv = require("dotenv");
+var Record = require('./models/record');
+
+const {check, validationResult} = require('express-validator');
 
 const app = express();
 let port = process.env.PORT || 8000; 
@@ -16,23 +19,16 @@ app.use(logger('tiny'));
 app.use(require('./routes'));
 
 
-app.set('view engine', 'ejs');
-
-app.get('/', (req, res) => {
-    res.render('index', 
-    {name: "adrian",
-    title: "home"},  
-    )  
-});    
+app.set('view engine', 'ejs');  
 
 
 app.listen(port, function(err){
-    console.log('Listening on port: ' + port);
+    console.log('Listening on port:' +port);
 });
 
 const dbURI = process.env.DB_URL;
 
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-        .then((result) => console.log('connected to db'))
+        .then((result) => console.info('connected to db' ))
         .catch((err) => console.log(err));
